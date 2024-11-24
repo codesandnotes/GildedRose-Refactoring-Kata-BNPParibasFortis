@@ -13,7 +13,7 @@ final class GildedRose {
 
             if (item instanceof Sulfuras) {
                 ((Sulfuras) item).updateQuality();
-                return;
+                continue;
             }
 
             if (!(item instanceof AgedBrie)
