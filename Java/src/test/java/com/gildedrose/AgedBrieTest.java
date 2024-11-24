@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AgedBrieTest {
 
 	@Test
-	void instantiateAnAgedBrieObject() {
+	void instantiatesAnAgedBrieObject() {
 		Item item = AgedBrie.create(SellIn.days(10), Quality.of(20));
 
 		assertEquals("Aged Brie", item.name);

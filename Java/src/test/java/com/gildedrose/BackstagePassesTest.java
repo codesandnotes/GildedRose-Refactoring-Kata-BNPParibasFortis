@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BackstagePassesTest {
 
 	@Test
-	void instantiateABackstagePassesObject() {
+	void instantiatesABackstagePassesObject() {
 		Item item = BackstagePasses.create(SellIn.days(10), Quality.of(20));
 
 		assertEquals("Backstage passes to a TAFKAL80ETC concert", item.name);

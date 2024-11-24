@@ -11,7 +11,7 @@ class GildedRoseTest {
 	class Instantiation {
 
 		@Test
-		void instantiateTheAppWithOneItem() {
+		void instantiatesTheAppWithOneItem() {
 			Item[] items = new Item[]{new Item("some item", 0, 0)};
 			GildedRose app = new GildedRose(items);
 
@@ -19,7 +19,7 @@ class GildedRoseTest {
 		}
 
 		@Test
-		void instantiateTheAppWithMultipleItems() {
+		void instantiatesTheAppWithMultipleItems() {
 			Item[] items = new Item[]{
 					AgedBrie.create(SellIn.days(0), Quality.of(0)),
 					AgedBrie.create(SellIn.days(0), Quality.of(0)),
@@ -36,7 +36,7 @@ class GildedRoseTest {
 	class QualityUpdate {
 
 		@Test
-		void updateTheQualityOfAStandardItem() {
+		void updatesTheQualityOfAStandardItem() {
 			Item[] items = new Item[]{new Item("Harry Potter's Magic Wand", 10, 30)};
 			GildedRose app = new GildedRose(items);
 
@@ -47,7 +47,7 @@ class GildedRoseTest {
 		}
 
 		@Test
-		void updateTheQualityOfASulfuras() {
+		void updatesTheQualityOfASulfuras() {
 			Item[] items = new Item[]{Sulfuras.create(SellIn.days(-1))};
 			GildedRose app = new GildedRose(items);
 
