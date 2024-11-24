@@ -3,6 +3,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ItemAssertions.assertItemHasProperties;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
@@ -61,11 +62,6 @@ class GildedRoseTest {
 			GildedRose app = new GildedRose(new Item[]{BackstagePass.create(SellIn.days(10), Quality.of(10))});
 			app.updateQuality();
 			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(12));
-		}
-
-		private void assertItemHasProperties(Item item, SellIn sellIn, Quality quality) {
-			assertEquals(sellIn.daysAsInteger(), item.sellIn);
-			assertEquals(quality.valueAsInteger(), item.quality);
 		}
 	}
 }

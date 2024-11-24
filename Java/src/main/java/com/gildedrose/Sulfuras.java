@@ -12,4 +12,8 @@ final class Sulfuras extends Item {
 	static Sulfuras create(SellIn sellIn) {
 		return new Sulfuras(ITEM_NAME, sellIn.daysAsInteger(), IMMUTABLE_QUALITY);
 	}
+
+	void updateQuality() {
+		// Nothing is updated because it's a legendary item: never sold, never loses its quality.
+	}
 }
