@@ -19,9 +19,7 @@ final class GildedRose {
             if (!(item instanceof AgedBrie)
                     && !(item instanceof BackstagePass)) {
                 if (item.quality > 0) {
-                    if (!(item instanceof Sulfuras)) {
-                        item.quality = item.quality - 1;
-                    }
+                    item.quality = item.quality - 1;
                 }
             } else {
                 if (item.quality < 50) {
@@ -43,9 +41,7 @@ final class GildedRose {
                 }
             }
 
-            if (!(item instanceof Sulfuras)) {
-                item.sellIn = item.sellIn - 1;
-            }
+            item.sellIn = item.sellIn - 1;
 
             if (item.sellIn < 0) {
                 if (!(item instanceof AgedBrie)) {
