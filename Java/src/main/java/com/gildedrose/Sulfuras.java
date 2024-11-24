@@ -9,7 +9,7 @@ class Sulfuras extends Item {
 		super(name, sellIn, quality);
 	}
 
-	static Sulfuras create(int sellIn) {
-		return new Sulfuras(ITEM_NAME, sellIn, IMMUTABLE_QUALITY);
+	static Sulfuras create(SellIn sellIn) {
+		return new Sulfuras(ITEM_NAME, sellIn.daysAsInteger(), IMMUTABLE_QUALITY);
 	}
 }

@@ -8,7 +8,7 @@ class BackstagePassesTest {
 
 	@Test
 	void instantiateABackstagePassesObject() {
-		Item item = BackstagePasses.create(10, 20);
+		Item item = BackstagePasses.create(SellIn.days(10), Quality.of(20));
 
 		assertEquals("Backstage passes to a TAFKAL80ETC concert", item.name);
 		assertEquals(20, item.quality);

@@ -8,7 +8,7 @@ public class BackstagePasses extends Item {
 		super(name, sellIn, quality);
 	}
 
-	static BackstagePasses create(int sellIn, int quality) {
-		return new BackstagePasses(ITEM_NAME, sellIn, quality);
+	static BackstagePasses create(SellIn sellIn, Quality quality) {
+		return new BackstagePasses(ITEM_NAME, sellIn.daysAsInteger(), quality.valueAsInteger());
 	}
 }

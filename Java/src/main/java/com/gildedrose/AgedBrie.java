@@ -8,7 +8,7 @@ public class AgedBrie extends Item {
 		super(name, sellIn, quality);
 	}
 
-	static AgedBrie create(int sellIn, int quality) {
-		return new AgedBrie(ITEM_NAME, sellIn, quality);
+	static AgedBrie create(SellIn days, Quality quality) {
+		return new AgedBrie(ITEM_NAME, days.daysAsInteger(), quality.valueAsInteger());
 	}
 }

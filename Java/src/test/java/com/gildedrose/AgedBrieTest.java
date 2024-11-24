@@ -8,7 +8,7 @@ class AgedBrieTest {
 
 	@Test
 	void instantiateAnAgedBrieObject() {
-		Item item = AgedBrie.create(10, 20);
+		Item item = AgedBrie.create(SellIn.days(10), Quality.of(20));
 
 		assertEquals("Aged Brie", item.name);
 		assertEquals(20, item.quality);

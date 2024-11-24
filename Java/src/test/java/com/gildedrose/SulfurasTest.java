@@ -8,7 +8,7 @@ class SulfurasTest {
 
 	@Test
 	void instantiateASulfurasObject() {
-		Item item = Sulfuras.create(-1);
+		Item item = Sulfuras.create(SellIn.days(-1));
 
 		assertEquals("Sulfuras, Hand of Ragnaros", item.name);
 		assertEquals(80, item.quality);

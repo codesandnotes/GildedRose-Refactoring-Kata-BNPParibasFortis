@@ -21,8 +21,8 @@ class GildedRoseTest {
 		@Test
 		void instantiateTheAppWithMultipleItems() {
 			Item[] items = new Item[]{
-					AgedBrie.create(0, 0),
-					AgedBrie.create(0, 0),
+					AgedBrie.create(SellIn.days(0), Quality.of(0)),
+					AgedBrie.create(SellIn.days(0), Quality.of(0)),
 			};
 
 			GildedRose app = new GildedRose(items);
@@ -48,7 +48,7 @@ class GildedRoseTest {
 
 		@Test
 		void updateTheQualityOfASulfuras() {
-			Item[] items = new Item[]{Sulfuras.create(-1)};
+			Item[] items = new Item[]{Sulfuras.create(SellIn.days(-1))};
 			GildedRose app = new GildedRose(items);
 
 			app.updateQuality();
