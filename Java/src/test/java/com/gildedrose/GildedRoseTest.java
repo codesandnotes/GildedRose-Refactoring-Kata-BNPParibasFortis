@@ -37,24 +37,35 @@ class GildedRoseTest {
 
 		@Test
 		void updatesTheQualityOfAStandardItem() {
-			Item[] items = new Item[]{new Item("Harry Potter's Magic Wand", 10, 30)};
-			GildedRose app = new GildedRose(items);
-
+			GildedRose app = new GildedRose(new Item[]{new Item("Harry Potter's Magic Wand", 10, 30)});
 			app.updateQuality();
-
-			assertEquals(9, app.items[0].sellIn);
-			assertEquals(29, app.items[0].quality);
+			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(29));
 		}
 
 		@Test
 		void updatesTheQualityOfASulfuras() {
-			Item[] items = new Item[]{Sulfuras.create(SellIn.days(-1))};
-			GildedRose app = new GildedRose(items);
-
+			GildedRose app = new GildedRose(new Item[]{Sulfuras.create(SellIn.days(-1))});
 			app.updateQuality();
+			assertItemHasProperties(app.items[0], SellIn.days(-1), Quality.of(80));
+		}
 
-			assertEquals(-1, app.items[0].sellIn);
-			assertEquals(80, app.items[0].quality);
+		@Test
+		void updatesTheQualityOfAnAgedBrie() {
+			GildedRose app = new GildedRose(new Item[]{AgedBrie.create(SellIn.days(10), Quality.of(10))});
+			app.updateQuality();
+			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(11));
+		}
+
+		@Test
+		void updatesTheQualityOfABackstagePass() {
+			GildedRose app = new GildedRose(new Item[]{BackstagePass.create(SellIn.days(10), Quality.of(10))});
+			app.updateQuality();
+			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(12));
+		}
+
+		private void assertItemHasProperties(Item item, SellIn sellIn, Quality quality) {
+			assertEquals(sellIn.daysAsInteger(), item.sellIn);
+			assertEquals(quality.valueAsInteger(), item.quality);
 		}
 	}
 }
