@@ -29,7 +29,7 @@ class ItemFactory {
 
 	private void initializeFactoryFunctions() {
 		FACTORY_FUNCTIONS.put("Aged Brie", AgedBrie::create);
-		FACTORY_FUNCTIONS.put("Backstage passes to a TAFKAL80ETC concert", BackstagePasses::create);
+		FACTORY_FUNCTIONS.put("Backstage passes to a TAFKAL80ETC concert", BackstagePass::create);
 		FACTORY_FUNCTIONS.put("Sulfuras, Hand of Ragnaros", (sellIn, quality) -> Sulfuras.create(sellIn));
 	}
 }

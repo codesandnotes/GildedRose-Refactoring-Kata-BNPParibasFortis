@@ -12,7 +12,7 @@ final class GildedRose {
             Item item = items[i];
 
             if (!(item instanceof AgedBrie)
-                    && !(item instanceof BackstagePasses)) {
+                    && !(item instanceof BackstagePass)) {
                 if (item.quality > 0) {
                     if (!(item instanceof Sulfuras)) {
                         item.quality = item.quality - 1;
@@ -22,7 +22,7 @@ final class GildedRose {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
 
-                    if (item instanceof BackstagePasses) {
+                    if (item instanceof BackstagePass) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
                                 item.quality = item.quality + 1;
@@ -44,7 +44,7 @@ final class GildedRose {
 
             if (item.sellIn < 0) {
                 if (!(item instanceof AgedBrie)) {
-                    if (!(item instanceof BackstagePasses)) {
+                    if (!(item instanceof BackstagePass)) {
                         if (item.quality > 0) {
                             if (!(item instanceof Sulfuras)) {
                                 item.quality = item.quality - 1;

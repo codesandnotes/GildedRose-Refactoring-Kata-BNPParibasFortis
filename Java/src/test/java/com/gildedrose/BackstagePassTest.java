@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BackstagePassesTest {
+class BackstagePassTest {
 
 	@Test
 	void instantiatesABackstagePassesObject() {
-		Item item = BackstagePasses.create(SellIn.days(10), Quality.of(20));
+		Item item = BackstagePass.create(SellIn.days(10), Quality.of(20));
 
 		assertEquals("Backstage passes to a TAFKAL80ETC concert", item.name);
 		assertEquals(20, item.quality);

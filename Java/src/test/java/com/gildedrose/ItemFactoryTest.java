@@ -30,7 +30,7 @@ class ItemFactoryTest {
 	@Test
 	void buildABackstagePass() {
 		Item item = new ItemFactory().build("Backstage passes to a TAFKAL80ETC concert", SELL_IN_10_DAYS, QUALITY_OF_30);
-		assertItemHasProperties(item, BackstagePasses.class, "Backstage passes to a TAFKAL80ETC concert", SELL_IN_10_DAYS, QUALITY_OF_30);
+		assertItemHasProperties(item, BackstagePass.class, "Backstage passes to a TAFKAL80ETC concert", SELL_IN_10_DAYS, QUALITY_OF_30);
 	}
 
 	private void assertItemHasProperties(Item item, Class<?> itemClass, String name, SellIn sellIn, Quality quality) {
