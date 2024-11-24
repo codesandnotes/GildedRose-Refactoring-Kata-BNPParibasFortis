@@ -32,25 +32,29 @@ class GildedRoseTest {
 		}
 	}
 
-	@Test
-	void updateTheQualityOfAStandardItem() {
-		Item[] items = new Item[]{new Item("Harry Potter's Magic Wand", 10, 30)};
-		GildedRose app = new GildedRose(items);
+	@Nested
+	class QualityUpdate {
 
-		app.updateQuality();
+		@Test
+		void updateTheQualityOfAStandardItem() {
+			Item[] items = new Item[]{new Item("Harry Potter's Magic Wand", 10, 30)};
+			GildedRose app = new GildedRose(items);
 
-		assertEquals(9, app.items[0].sellIn);
-		assertEquals(29, app.items[0].quality);
-	}
+			app.updateQuality();
 
-	@Test
-	void updateTheQualityOfASulfuras() {
-		Item[] items = new Item[]{Sulfuras.create()};
-		GildedRose app = new GildedRose(items);
+			assertEquals(9, app.items[0].sellIn);
+			assertEquals(29, app.items[0].quality);
+		}
 
-		app.updateQuality();
+		@Test
+		void updateTheQualityOfASulfuras() {
+			Item[] items = new Item[]{Sulfuras.create()};
+			GildedRose app = new GildedRose(items);
 
-		assertEquals(-1, app.items[0].sellIn);
-		assertEquals(80, app.items[0].quality);
+			app.updateQuality();
+
+			assertEquals(-1, app.items[0].sellIn);
+			assertEquals(80, app.items[0].quality);
+		}
 	}
 }
