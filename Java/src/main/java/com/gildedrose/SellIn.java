@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-class SellIn {
+final class SellIn {
 
 	private final int days;
 

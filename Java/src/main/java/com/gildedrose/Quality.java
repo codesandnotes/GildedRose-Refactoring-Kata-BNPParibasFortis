@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-class Quality {
+final class Quality {
 
 	private final int qualityValue;
 

@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-class Sulfuras extends Item {
+final class Sulfuras extends Item {
 
 	private static final int IMMUTABLE_QUALITY = 80;
 	private static final String ITEM_NAME = "Sulfuras, Hand of Ragnaros";
