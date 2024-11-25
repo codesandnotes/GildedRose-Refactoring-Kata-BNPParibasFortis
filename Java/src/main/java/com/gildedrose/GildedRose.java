@@ -21,6 +21,11 @@ final class GildedRose {
                 continue;
             }
 
+            if (item instanceof BackstagePass) {
+                ((BackstagePass) item).updateQuality();
+                continue;
+            }
+
             if (!(item instanceof AgedBrie)
                     && !(item instanceof BackstagePass)) {
                 if (item.quality > 0) {

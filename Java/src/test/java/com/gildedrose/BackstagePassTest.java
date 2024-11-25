@@ -44,10 +44,10 @@ class BackstagePassTest {
 			assertItemHasProperties(item, SellIn.days(11), Quality.of(31));
 
 			item.updateQuality();
-			assertItemHasProperties(item, SellIn.days(10), Quality.of(33));
+			assertItemHasProperties(item, SellIn.days(10), Quality.of(32));
 
 			item.updateQuality();
-			assertItemHasProperties(item, SellIn.days(9), Quality.of(35));
+			assertItemHasProperties(item, SellIn.days(9), Quality.of(34));
 		}
 
 		@Test
@@ -57,10 +57,10 @@ class BackstagePassTest {
 			assertItemHasProperties(item, SellIn.days(6), Quality.of(32));
 
 			item.updateQuality();
-			assertItemHasProperties(item, SellIn.days(5), Quality.of(35));
+			assertItemHasProperties(item, SellIn.days(5), Quality.of(34));
 
 			item.updateQuality();
-			assertItemHasProperties(item, SellIn.days(4), Quality.of(38));
+			assertItemHasProperties(item, SellIn.days(4), Quality.of(37));
 		}
 
 		@Test

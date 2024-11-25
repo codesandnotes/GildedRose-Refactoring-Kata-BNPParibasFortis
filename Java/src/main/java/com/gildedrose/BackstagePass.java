@@ -13,12 +13,6 @@ final class BackstagePass extends Item {
 	}
 
 	void updateQuality() {
-		this.sellIn--;
-
-		if (sellIn < 0) {
-			this.quality = 0;
-			return;
-		}
 
 		int qualityIncrease = 1;
 		if (sellIn <= 10 && sellIn > 5) {
@@ -26,6 +20,12 @@ final class BackstagePass extends Item {
 		}
 		if (sellIn <= 5) {
 			qualityIncrease = 3;
+		}
+
+		this.sellIn--;
+		if (sellIn < 0) {
+			this.quality = 0;
+			return;
 		}
 
 		this.quality = Math.min(50, quality + qualityIncrease);
