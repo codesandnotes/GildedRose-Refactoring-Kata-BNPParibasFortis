@@ -27,7 +27,7 @@ class AgedBrieTest {
 		}
 
 		@Test
-		void increasesQualityTwofoldWhenSellInDaysIsBelowZero() {
+		void increasesQualityByTwoWhenSellInDaysIsBelowZero() {
 			AgedBrie item = AgedBrie.create(SellIn.days(1), Quality.of(30));
 			item.updateQuality();
 			assertEquals(31, item.quality);

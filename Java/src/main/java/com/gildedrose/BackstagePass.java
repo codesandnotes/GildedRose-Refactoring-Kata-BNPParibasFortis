@@ -11,4 +11,23 @@ final class BackstagePass extends Item {
 	static BackstagePass create(SellIn sellIn, Quality quality) {
 		return new BackstagePass(ITEM_NAME, sellIn.daysAsInteger(), quality.valueAsInteger());
 	}
+
+	void updateQuality() {
+		this.sellIn--;
+
+		if (sellIn < 0) {
+			this.quality = 0;
+			return;
+		}
+
+		int qualityIncrease = 1;
+		if (sellIn <= 10 && sellIn > 5) {
+			qualityIncrease = 2;
+		}
+		if (sellIn <= 5) {
+			qualityIncrease = 3;
+		}
+
+		this.quality = Math.min(50, quality + qualityIncrease);
+	}
 }

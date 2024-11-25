@@ -6,13 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ItemFactoryTest {
 
-	public static final Quality QUALITY_OF_30 = Quality.of(30);
-	public static final SellIn SELL_IN_10_DAYS = SellIn.days(10);
-
 	@Test
 	void buildsAStandardItemByDefault() {
-		Item item = new ItemFactory().build("some name", SELL_IN_10_DAYS, QUALITY_OF_30);
-		assertItemHasProperties(item, Item.class, "some name", SELL_IN_10_DAYS, QUALITY_OF_30);
+		Item item = new ItemFactory().build("some name", SellIn.days(10), Quality.of(30));
+		assertItemHasProperties(item, Item.class, "some name", SellIn.days(10), Quality.of(30));
 	}
 
 	@Test
@@ -23,14 +20,14 @@ class ItemFactoryTest {
 
 	@Test
 	void buildsAnAgedBrie() {
-		Item item = new ItemFactory().build("Aged Brie", SELL_IN_10_DAYS, QUALITY_OF_30);
-		assertItemHasProperties(item, AgedBrie.class, "Aged Brie", SELL_IN_10_DAYS, QUALITY_OF_30);
+		Item item = new ItemFactory().build("Aged Brie", SellIn.days(10), Quality.of(30));
+		assertItemHasProperties(item, AgedBrie.class, "Aged Brie", SellIn.days(10), Quality.of(30));
 	}
 
 	@Test
 	void buildABackstagePass() {
-		Item item = new ItemFactory().build("Backstage passes to a TAFKAL80ETC concert", SELL_IN_10_DAYS, QUALITY_OF_30);
-		assertItemHasProperties(item, BackstagePass.class, "Backstage passes to a TAFKAL80ETC concert", SELL_IN_10_DAYS, QUALITY_OF_30);
+		Item item = new ItemFactory().build("Backstage passes to a TAFKAL80ETC concert", SellIn.days(10), Quality.of(30));
+		assertItemHasProperties(item, BackstagePass.class, "Backstage passes to a TAFKAL80ETC concert", SellIn.days(10), Quality.of(30));
 	}
 
 	private void assertItemHasProperties(Item item, Class<?> itemClass, String name, SellIn sellIn, Quality quality) {
