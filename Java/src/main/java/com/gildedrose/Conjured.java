@@ -1,7 +1,6 @@
 package com.gildedrose;
 
-class Conjured extends StandardItem {
-
+final class Conjured extends StandardItem {
 
 	private Conjured(Item item) {
 		super(item);

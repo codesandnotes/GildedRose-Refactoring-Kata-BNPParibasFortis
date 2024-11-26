@@ -17,6 +17,22 @@ public class StandardItem {
 		this.item = item;
 	}
 
+	final Item item() {
+		return item;
+	}
+
+	final Quality quality() {
+		return Quality.of(item.quality);
+	}
+
+	final SellIn sellIn() {
+		return SellIn.days(item.sellIn);
+	}
+
+	final void setQuality(Quality quality) {
+		item.quality = quality.valueAsInteger();
+	}
+
 	final void updateQuality() {
 		decreaseSellIn();
 		assessQuality();
@@ -31,22 +47,6 @@ public class StandardItem {
 
 	void decreaseSellIn() {
 		item.sellIn--;
-	}
-
-	Item item() {
-		return item;
-	}
-
-	Quality quality() {
-		return Quality.of(item.quality);
-	}
-
-	SellIn sellIn() {
-		return SellIn.days(item.sellIn);
-	}
-
-	void setQuality(Quality quality) {
-		item.quality = quality.valueAsInteger();
 	}
 
 	static StandardItem from(Item item) {
