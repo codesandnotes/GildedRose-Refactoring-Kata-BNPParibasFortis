@@ -2,8 +2,7 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SellInTest {
 
@@ -24,5 +23,16 @@ class SellInTest {
 	void returnsTheSellInDaysAsAnInteger() {
 		SellIn sellIn = SellIn.days(3);
 		assertEquals(3, sellIn.daysAsInteger());
+	}
+
+	@Test
+	void indicatesWhetherAGivenNumberOfDaysIsLowerThanTheDaysRepresentedByTheInstance() {
+		SellIn sellIn = SellIn.days(10);
+		assertTrue(sellIn.isLowerThan(11));
+		assertFalse(sellIn.isLowerThan(9));
+
+		sellIn = SellIn.days(0);
+		assertFalse(sellIn.isLowerThan(0));
+		assertFalse(sellIn.isLowerThan(-1));
 	}
 }

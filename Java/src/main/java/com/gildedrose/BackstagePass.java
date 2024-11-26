@@ -10,8 +10,8 @@ final class BackstagePass extends StandardItem {
 	}
 
 	@Override
-	protected void assessQuality() {
-		if (sellIn().daysAsInteger() < 0) {
+	void assessQuality() {
+		if (sellIn().isLowerThan(0)) {
 			setQuality(Quality.of(0));
 			return;
 		}
@@ -26,7 +26,7 @@ final class BackstagePass extends StandardItem {
 			qualityIncrease = 3;
 		}
 
-		setQuality(quality().increaseBy(qualityIncrease, STANDARD_CEILING));
+		setQuality(quality().increaseBy(qualityIncrease, STANDARD_QUALITY_CEILING));
 	}
 
 	static BackstagePass create(Item item) {

@@ -10,6 +10,11 @@ final class Quality {
 		this.qualityValue = quality;
 	}
 
+	public Quality decreaseBy(int value) {
+		int decreasedQualityValue = Math.max(0, qualityValue - value);
+		return new Quality(decreasedQualityValue);
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -23,8 +28,8 @@ final class Quality {
 		return Objects.hash(qualityValue);
 	}
 
-	public Quality increaseBy(int increase, int ceilingOfIncrease) {
-		int increasedQualityValue = Math.min(ceilingOfIncrease, qualityValue + increase);
+	public Quality increaseBy(int value, int ceilingOfIncrease) {
+		int increasedQualityValue = Math.min(ceilingOfIncrease, qualityValue + value);
 		return new Quality(increasedQualityValue);
 	}
 

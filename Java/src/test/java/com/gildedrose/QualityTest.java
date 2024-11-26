@@ -34,4 +34,19 @@ class QualityTest {
 		quality = Quality.of(15).increaseBy(5, 18);
 		assertEquals(18, quality.valueAsInteger());
 	}
+
+	@Test
+	void decreaseQualityButNotBelowZero() {
+		Quality quality = Quality.of(4).decreaseBy(3);
+		assertEquals(1, quality.valueAsInteger());
+
+		quality = quality.decreaseBy(1);
+		assertEquals(0, quality.valueAsInteger());
+
+		quality = quality.decreaseBy(1);
+		assertEquals(0, quality.valueAsInteger());
+
+		quality = Quality.of(1).decreaseBy(2);
+		assertEquals(0, quality.valueAsInteger());
+	}
 }

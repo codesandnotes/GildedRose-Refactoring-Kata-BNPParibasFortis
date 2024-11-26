@@ -9,12 +9,12 @@ final class Sulfuras extends StandardItem {
 	}
 
 	@Override
-	protected void assessQuality() {
+	void assessQuality() {
 		setQuality(Quality.of(IMMUTABLE_QUALITY));
 	}
 
 	@Override
-	protected void decreaseSellIn() {
+	void decreaseSellIn() {
 		// sell-in never updates
 	}
 

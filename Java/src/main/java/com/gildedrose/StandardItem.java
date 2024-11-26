@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 public class StandardItem {
 
-	static final int STANDARD_CEILING = 50;
+	static final int STANDARD_QUALITY_CEILING = 50;
 
 	private static final Map<String, Function<Item, StandardItem>> FACTORY_FUNCTIONS = new HashMap<>();
 
@@ -22,14 +22,14 @@ public class StandardItem {
 		assessQuality();
 	}
 
-	protected void assessQuality() {
+	void assessQuality() {
 		item.quality = item.sellIn < 0 ? item.quality - 2 : item.quality - 1;
 		if (item.quality < 0) {
 			item.quality = 0;
 		}
 	}
 
-	protected void decreaseSellIn() {
+	void decreaseSellIn() {
 		item.sellIn--;
 	}
 
@@ -66,6 +66,7 @@ public class StandardItem {
 	private static void initializeFactoryFunctions() {
 		FACTORY_FUNCTIONS.put("Aged Brie", AgedBrie::create);
 		FACTORY_FUNCTIONS.put("Backstage passes to a TAFKAL80ETC concert", BackstagePass::create);
+		FACTORY_FUNCTIONS.put("Conjured Mana Cake", Conjured::create);
 		FACTORY_FUNCTIONS.put("Sulfuras, Hand of Ragnaros", Sulfuras::create);
 	}
 }

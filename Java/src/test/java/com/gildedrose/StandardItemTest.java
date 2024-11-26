@@ -33,6 +33,12 @@ class StandardItemTest {
 			StandardItem standardItem = StandardItem.from(new Item("Aged Brie", 10, 20));
 			assertStandardItemHasProperties(standardItem, AgedBrie.class, SellIn.days(10), Quality.of(20));
 		}
+
+		@Test
+		void instantiatesAConjuredObject() {
+			StandardItem standardItem = StandardItem.from(new Item("Conjured Mana Cake", 10, 20));
+			assertStandardItemHasProperties(standardItem, Conjured.class, SellIn.days(10), Quality.of(20));
+		}
 	}
 
 	@Nested

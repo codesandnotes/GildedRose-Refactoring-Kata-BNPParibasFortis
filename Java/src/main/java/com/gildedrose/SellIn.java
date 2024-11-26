@@ -30,4 +30,8 @@ final class SellIn {
 	static SellIn days(int days) {
 		return new SellIn(days);
 	}
+
+	public boolean isLowerThan(int days) {
+		return this.days < days;
+	}
 }
