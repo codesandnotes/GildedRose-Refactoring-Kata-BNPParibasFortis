@@ -1,8 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
 import java.util.Objects;
 
-final class SellIn {
+public final class SellIn {
 
 	private final int days;
 
@@ -10,7 +10,7 @@ final class SellIn {
 		this.days = days;
 	}
 
-	int daysAsInteger() {
+	public int daysAsInteger() {
 		return days;
 	}
 
@@ -27,7 +27,7 @@ final class SellIn {
 		return Objects.hash(days);
 	}
 
-	static SellIn days(int days) {
+	public static SellIn days(int days) {
 		return new SellIn(days);
 	}
 

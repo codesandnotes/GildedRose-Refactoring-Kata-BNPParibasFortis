@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Quality;
+import com.gildedrose.items.SellIn;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

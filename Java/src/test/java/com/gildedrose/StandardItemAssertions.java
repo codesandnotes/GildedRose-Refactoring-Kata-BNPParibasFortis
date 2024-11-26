@@ -1,5 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.items.Quality;
+import com.gildedrose.items.SellIn;
+import com.gildedrose.items.StandardItem;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StandardItemAssertions{

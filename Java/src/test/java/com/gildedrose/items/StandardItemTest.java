@@ -1,5 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
+import com.gildedrose.Item;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

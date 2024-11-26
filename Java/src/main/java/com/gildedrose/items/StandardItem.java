@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.items;
+
+import com.gildedrose.Item;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,25 +19,25 @@ public class StandardItem {
 		this.item = item;
 	}
 
-	final Item item() {
+	public final Item item() {
 		return item;
 	}
 
-	final Quality quality() {
+	public final Quality quality() {
 		return Quality.of(item.quality);
 	}
 
-	final SellIn sellIn() {
+	public final SellIn sellIn() {
 		return SellIn.days(item.sellIn);
+	}
+
+	public final void updateQuality() {
+		decreaseSellIn();
+		assessQuality();
 	}
 
 	final void setQuality(Quality quality) {
 		item.quality = quality.valueAsInteger();
-	}
-
-	final void updateQuality() {
-		decreaseSellIn();
-		assessQuality();
 	}
 
 	void assessQuality() {
@@ -49,7 +51,7 @@ public class StandardItem {
 		item.sellIn--;
 	}
 
-	static StandardItem from(Item item) {
+	public static StandardItem from(Item item) {
 		Optional<Function<Item, StandardItem>> factoryFunction = factoryFunctions(item.name);
 		Item itemClone = new Item(item.name, item.sellIn, item.quality);
 		return factoryFunction.map(fn -> fn.apply(itemClone)).orElse(new StandardItem(itemClone));

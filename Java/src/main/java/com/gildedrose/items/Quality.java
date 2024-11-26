@@ -1,8 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
 import java.util.Objects;
 
-final class Quality {
+public final class Quality {
 
 	private final int qualityValue;
 
@@ -33,11 +33,11 @@ final class Quality {
 		return new Quality(increasedQualityValue);
 	}
 
-	int valueAsInteger() {
+	public int valueAsInteger() {
 		return qualityValue;
 	}
 
-	static Quality of(int value) {
+	public static Quality of(int value) {
 		return new Quality(value);
 	}
 }
