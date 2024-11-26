@@ -6,16 +6,16 @@ public class TexttestFixture {
 		ItemFactory itemFactory = new ItemFactory();
 
 		Item[] items = new Item[]{
-				itemFactory.build("+5 Dexterity Vest", SellIn.days(10), Quality.of(20)),
-				itemFactory.build("Aged Brie", SellIn.days(2), Quality.of(0)),
-				itemFactory.build("Elixir of the Mongoose", SellIn.days(5), Quality.of(7)),
-				itemFactory.build("Sulfuras, Hand of Ragnaros", SellIn.days(0)),
-				itemFactory.build("Sulfuras, Hand of Ragnaros", SellIn.days(-1)),
-				itemFactory.build("Backstage passes to a TAFKAL80ETC concert", SellIn.days(15), Quality.of(20)),
-				itemFactory.build("Backstage passes to a TAFKAL80ETC concert", SellIn.days(10), Quality.of(49)),
-				itemFactory.build("Backstage passes to a TAFKAL80ETC concert", SellIn.days(5), Quality.of(49)),
+				new Item("+5 Dexterity Vest", 10, 20),
+				new Item("Aged Brie", 2, 0),
+				new Item("Elixir of the Mongoose", 5, 7),
+				new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+				new Item("Sulfuras, Hand of Ragnaros", -1, 80),
+				new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+				new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
+				new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
 				// this conjured item does not work properly yet
-				itemFactory.build("Conjured Mana Cake", SellIn.days(3), Quality.of(6)),
+				new Item("Conjured Mana Cake", 3, 6),
 		};
 
 		GildedRose app = new GildedRose(items);

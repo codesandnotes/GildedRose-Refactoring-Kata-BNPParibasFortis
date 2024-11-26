@@ -3,17 +3,14 @@ package com.gildedrose;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemAssertions.assertItemHasProperties;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.gildedrose.StandardItemAssertions.assertStandardItemHasProperties;
 
 class AgedBrieTest {
 
 	@Test
 	void instantiatesAnAgedBrieObject() {
-		Item item = AgedBrie.create(SellIn.days(10), Quality.of(20));
-
-		assertEquals("Aged Brie", item.name);
-		assertItemHasProperties(item, SellIn.days(10), Quality.of(20));
+		AgedBrie agedBrie = AgedBrie.create(new Item("Aged Brie", 10, 20));
+		assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(10), Quality.of(20));
 	}
 
 	@Nested
@@ -21,39 +18,36 @@ class AgedBrieTest {
 
 		@Test
 		void updatesItsQuality() {
-			AgedBrie item = AgedBrie.create(SellIn.days(10), Quality.of(20));
-			item.updateQuality();
-			assertItemHasProperties(item, SellIn.days(9), Quality.of(21));
+			AgedBrie agedBrie = AgedBrie.create(new Item("Aged Brie", 10, 20));
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(9), Quality.of(21));
 		}
 
 		@Test
 		void increasesQualityByTwoWhenSellInDaysIsBelowZero() {
-			AgedBrie item = AgedBrie.create(SellIn.days(1), Quality.of(30));
-			item.updateQuality();
-			assertEquals(31, item.quality);
-			assertEquals(0, item.sellIn);
+			AgedBrie agedBrie = AgedBrie.create(new Item("Aged Brie", 1, 30));
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(0), Quality.of(31));
 
-			item.updateQuality();
-			assertEquals(33, item.quality);
-			assertEquals(-1, item.sellIn);
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(-1), Quality.of(33));
 
-			item.updateQuality();
-			assertEquals(35, item.quality);
-			assertEquals(-2, item.sellIn);
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(-2), Quality.of(35));
 		}
 
 		@Test
 		void neverUpdatesTheQualityAbove50() {
-			AgedBrie item = AgedBrie.create(SellIn.days(4), Quality.of(49));
-			item.updateQuality();
-			assertEquals(50, item.quality);
+			AgedBrie agedBrie = AgedBrie.create(new Item("Aged Brie", 4, 49));
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(3), Quality.of(50));
 
-			item.updateQuality();
-			assertEquals(50, item.quality);
+			agedBrie.updateQuality();
+			assertStandardItemHasProperties(agedBrie, AgedBrie.class, SellIn.days(2), Quality.of(50));
 
-			AgedBrie veryOldItem = AgedBrie.create(SellIn.days(-1), Quality.of(49));
-			veryOldItem.updateQuality();
-			assertEquals(50, item.quality);
+			AgedBrie veryOldBrie = AgedBrie.create(new Item("Aged Brie", -1, 49));
+			veryOldBrie.updateQuality();
+			assertStandardItemHasProperties(veryOldBrie, AgedBrie.class, SellIn.days(-2), Quality.of(50));
 		}
 	}
 }

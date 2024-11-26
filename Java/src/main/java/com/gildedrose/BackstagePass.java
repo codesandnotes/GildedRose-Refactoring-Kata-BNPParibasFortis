@@ -1,33 +1,32 @@
 package com.gildedrose;
 
-final class BackstagePass extends Item {
+final class BackstagePass extends StandardItem {
 
-	private static final String ITEM_NAME = "Backstage passes to a TAFKAL80ETC concert";
-
-	private BackstagePass(String name, int sellIn, int quality) {
-		super(name, sellIn, quality);
+	private BackstagePass(Item item) {
+		super(item);
 	}
 
-	static BackstagePass create(SellIn sellIn, Quality quality) {
-		return new BackstagePass(ITEM_NAME, sellIn.daysAsInteger(), quality.valueAsInteger());
-	}
-
-	void updateQuality() {
-
-		int qualityIncrease = 1;
-		if (sellIn <= 10 && sellIn > 5) {
-			qualityIncrease = 2;
-		}
-		if (sellIn <= 5) {
-			qualityIncrease = 3;
-		}
-
-		this.sellIn--;
-		if (sellIn < 0) {
-			this.quality = 0;
+	@Override
+	protected void assessQuality() {
+		if (sellIn().daysAsInteger() < 0) {
+			setQuality(Quality.of(0));
 			return;
 		}
 
-		this.quality = Math.min(50, quality + qualityIncrease);
+		int qualityIncrease = 1;
+
+		int sellInDays = sellIn().daysAsInteger();
+		if (sellInDays < 10 && sellInDays >= 5) {
+			qualityIncrease = 2;
+		}
+		if (sellInDays < 5) {
+			qualityIncrease = 3;
+		}
+
+		setQuality(Quality.of(Math.min(50, quality().valueAsInteger() + qualityIncrease)));
+	}
+
+	static BackstagePass create(Item item) {
+		return new BackstagePass(item);
 	}
 }

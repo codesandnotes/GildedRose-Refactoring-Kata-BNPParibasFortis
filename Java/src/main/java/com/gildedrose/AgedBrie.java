@@ -1,20 +1,18 @@
 package com.gildedrose;
 
-final class AgedBrie extends Item {
+final class AgedBrie extends StandardItem {
 
-	private static final String ITEM_NAME = "Aged Brie";
-
-	private AgedBrie(String name, int sellIn, int quality) {
-		super(name, sellIn, quality);
+	private AgedBrie(Item item) {
+		super(item);
 	}
 
-	static AgedBrie create(SellIn days, Quality quality) {
-		return new AgedBrie(ITEM_NAME, days.daysAsInteger(), quality.valueAsInteger());
+	@Override
+	protected void assessQuality() {
+		int qualityIncrease = sellIn().daysAsInteger() < 0 ? 2 : 1;
+		setQuality(Quality.of(Math.min(50, quality().valueAsInteger() + qualityIncrease)));
 	}
 
-	void updateQuality() {
-		this.sellIn--;
-		int qualityIncrease = sellIn < 0 ? 2 : 1;
-		this.quality = Math.min(50, quality + qualityIncrease);
+	static AgedBrie create(Item item) {
+		return new AgedBrie(item);
 	}
 }

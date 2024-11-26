@@ -22,8 +22,8 @@ class GildedRoseTest {
 		@Test
 		void instantiatesTheAppWithMultipleItems() {
 			Item[] items = new Item[]{
-					AgedBrie.create(SellIn.days(0), Quality.of(0)),
-					AgedBrie.create(SellIn.days(0), Quality.of(0)),
+					new Item("Aged Brie", 0, 0),
+					new Item("Aged Brie", 0, 0)
 			};
 
 			GildedRose app = new GildedRose(items);
@@ -45,21 +45,21 @@ class GildedRoseTest {
 
 		@Test
 		void updatesTheQualityOfASulfuras() {
-			GildedRose app = new GildedRose(new Item[]{Sulfuras.create(SellIn.days(-1))});
+			GildedRose app = new GildedRose(new Item[]{new Item("Sulfuras, Hand of Ragnaros", -1, 80)});
 			app.updateQuality();
 			assertItemHasProperties(app.items[0], SellIn.days(-1), Quality.of(80));
 		}
 
 		@Test
 		void updatesTheQualityOfAnAgedBrie() {
-			GildedRose app = new GildedRose(new Item[]{AgedBrie.create(SellIn.days(10), Quality.of(10))});
+			GildedRose app = new GildedRose(new Item[]{new Item("Aged Brie", 10, 10)});
 			app.updateQuality();
 			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(11));
 		}
 
 		@Test
 		void updatesTheQualityOfABackstagePass() {
-			GildedRose app = new GildedRose(new Item[]{BackstagePass.create(SellIn.days(10), Quality.of(10))});
+			GildedRose app = new GildedRose(new Item[]{new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10)});
 			app.updateQuality();
 			assertItemHasProperties(app.items[0], SellIn.days(9), Quality.of(12));
 		}
