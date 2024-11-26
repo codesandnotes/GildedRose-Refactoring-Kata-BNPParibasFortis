@@ -2,6 +2,9 @@ package com.gildedrose;
 
 final class BackstagePass extends StandardItem {
 
+	public static final int HIGHER_BOUNDARY = 10;
+	public static final int LOWER_BOUNDARY = 5;
+
 	private BackstagePass(Item item) {
 		super(item);
 	}
@@ -16,14 +19,14 @@ final class BackstagePass extends StandardItem {
 		int qualityIncrease = 1;
 
 		int sellInDays = sellIn().daysAsInteger();
-		if (sellInDays < 10 && sellInDays >= 5) {
+		if (sellInDays < HIGHER_BOUNDARY && sellInDays >= LOWER_BOUNDARY) {
 			qualityIncrease = 2;
 		}
-		if (sellInDays < 5) {
+		if (sellInDays < LOWER_BOUNDARY) {
 			qualityIncrease = 3;
 		}
 
-		setQuality(quality().increaseBy(qualityIncrease, 50));
+		setQuality(quality().increaseBy(qualityIncrease, STANDARD_CEILING));
 	}
 
 	static BackstagePass create(Item item) {

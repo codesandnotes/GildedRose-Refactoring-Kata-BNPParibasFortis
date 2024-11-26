@@ -7,6 +7,8 @@ import java.util.function.Function;
 
 public class StandardItem {
 
+	static final int STANDARD_CEILING = 50;
+
 	private static final Map<String, Function<Item, StandardItem>> FACTORY_FUNCTIONS = new HashMap<>();
 
 	private final Item item;
