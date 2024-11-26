@@ -23,7 +23,7 @@ final class BackstagePass extends StandardItem {
 			qualityIncrease = 3;
 		}
 
-		setQuality(Quality.of(Math.min(50, quality().valueAsInteger() + qualityIncrease)));
+		setQuality(quality().increaseBy(qualityIncrease, 50));
 	}
 
 	static BackstagePass create(Item item) {

@@ -9,7 +9,7 @@ final class AgedBrie extends StandardItem {
 	@Override
 	protected void assessQuality() {
 		int qualityIncrease = sellIn().daysAsInteger() < 0 ? 2 : 1;
-		setQuality(Quality.of(Math.min(50, quality().valueAsInteger() + qualityIncrease)));
+		setQuality(quality().increaseBy(qualityIncrease, 50));
 	}
 
 	static AgedBrie create(Item item) {

@@ -23,6 +23,11 @@ final class Quality {
 		return Objects.hash(qualityValue);
 	}
 
+	public Quality increaseBy(int increase, int ceilingOfIncrease) {
+		int increasedQualityValue = Math.min(ceilingOfIncrease, qualityValue + increase);
+		return new Quality(increasedQualityValue);
+	}
+
 	int valueAsInteger() {
 		return qualityValue;
 	}

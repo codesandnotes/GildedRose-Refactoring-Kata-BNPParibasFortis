@@ -25,4 +25,13 @@ class QualityTest {
 		Quality quality = Quality.of(50);
 		assertEquals(50, quality.valueAsInteger());
 	}
+
+	@Test
+	void increaseQualityWithASpecifiedCeiling() {
+		Quality quality = Quality.of(15).increaseBy(5, 20);
+		assertEquals(20, quality.valueAsInteger());
+
+		quality = Quality.of(15).increaseBy(5, 18);
+		assertEquals(18, quality.valueAsInteger());
+	}
 }
